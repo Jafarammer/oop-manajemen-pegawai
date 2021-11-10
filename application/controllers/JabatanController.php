@@ -24,4 +24,26 @@ class JabatanController extends MainController {
         $jabatan->insert();
         $this->redirect('jabatan/index');
     }
+
+    // Update data
+    public function edit($id) {
+        $data = $this->jabatan->select()->where(['id_jabatan', '=', $id]) ->get();
+        $data = $this->jabatan->select()->get();
+        $this->template('jabatan/edit', $data);
+    }
+
+    public function update() {
+        $jabatan = $this->jabatan->find($_POST['id']);
+        $jabatan->data([
+            'nama_jabatan' => $_POST['nama']
+        ]);
+        $jabatan->update();
+        $this->redirect('jabatan/index');
+    }
+
+    // Delete data
+    public function delete($id) {
+        $this->jabatan->find($id)->delete();
+        $this->redirect('jabatan/index');
+    }
 }

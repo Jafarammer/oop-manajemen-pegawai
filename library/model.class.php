@@ -106,8 +106,8 @@
         // Method menambahkan data
         public function data($data) {
             $this->_data = "";
-            foreach($data as $key => $val) {
-                $this->_data .= "$key = '$val', ";
+            foreach($data as $key=>$val) {
+                $this->_data .= " $key='$val' ,";
             }
             $this->_data = substr($this->_data, 0, -1);
             return $this;
@@ -120,14 +120,14 @@
             return $this;
         }
 
-        public function insert() {
-            try {
-                $sql = "INSERT INTO ".$this->_table." SET ".$this->_data;
-                return $this->_dbh->query($sql);
-            } catch (PDOException $error) {
-                die ("Tidak dapat menyimpan data: ".$error->getMessage());
+        public function insert(){
+            try{
+               $sql = 'INSERT INTO '.$this->_table.' SET '.$this->_data;
+               return $this->_dbh->query($sql);
+            }catch(PDOException $error){
+               die ("Tidak dapat menyimpan data: ".$error->getMessage());
             }
-        }
+         }
 
         public function update() {
             try {

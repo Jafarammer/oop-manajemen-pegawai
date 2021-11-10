@@ -42,7 +42,7 @@
                                         }
                                     ?>
                                     <div class="form-outline mb-4">
-                                        <input type="text" name="username" class="form-control form-control-lg" placeholder="Username" autocomplete="off" />
+                                        <input type="text" name="username" class="form-control form-control-lg" placeholder="Username" autocomplete="off" autofocus />
                                     </div>
                                     <div class="form-outline mb-4">
                                         <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" />
